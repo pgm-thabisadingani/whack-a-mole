@@ -1,5 +1,4 @@
 import React from 'react';
-import bg from '../../assets/WAM_bg.jpg';
 import Mole from '../mole/Mole';
 import './moles.scss';
 
@@ -12,11 +11,11 @@ const Moles = () => {
   // constatnt for the total number of moles
   const totalMoles = 12;
 
-  const items = new Array(totalMoles)
+  const moles = new Array(totalMoles)
     .fill(null)
-    .map((_, i) => <Mole key={i} id={i} />);
+    .map((_, i) => <Mole key={i} id={i + 1} />);
 
-  return <div className="moles">{items}</div>;
+  return <div className="moles">{moles}</div>;
 };
 
 export default Moles;
