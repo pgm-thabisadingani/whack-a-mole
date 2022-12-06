@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.scss';
+import { Moles, Navbar } from './components';
 
 function App() {
+  const [start, setStart] = useState(false);
+  const [end, setEnd] = useState(false);
+  const [score, setScore] = useState(0);
+
+  const startGame = () => {
+    setScore(0);
+    setStart(true);
+    setEnd(false);
+  };
+
+  const endGame = () => {
+    setStart(false);
+    setEnd(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="wrapper">
+        {/* start the game */}
+        {!start && !end && (
+          <div className="start">
+            <button onClick={startGame}>Start</button>
+          </div>
+        )}
+        {/* game area*/}
+        {start && (
+          <div className="play">
+            <button onClick={endGame}>end game</button>
+            <Moles />
+          </div>
+        )}
+        {end && (
+          <div className="play">
+            <button onClick={startGame}>Play again</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
