@@ -1,7 +1,7 @@
 /**
  * User data
  */
-export const projects = [
+export const usersScores = [
   {
     id: 1,
     name: 'John',
@@ -9,52 +9,52 @@ export const projects = [
   },
   {
     id: 2,
-    name: 'John',
+    name: 'Mary',
     score: 2,
   },
   {
     id: 3,
-    name: 'John',
+    name: 'Jaen',
     score: 9,
   },
   {
     id: 4,
-    name: 'John',
+    name: 'Bill',
     score: 7,
   },
   {
     id: 5,
-    name: 'John',
+    name: 'Ura',
     score: 10,
   },
   {
     id: 6,
-    name: 'John',
+    name: 'Cool',
     score: 12,
   },
   {
     id: 7,
-    name: 'John',
+    name: 'Phill',
     score: 9,
   },
   {
     id: 8,
-    name: 'John',
+    name: 'Drdot',
     score: 9,
   },
   {
     id: 9,
-    name: 'John',
+    name: 'NetNot',
     score: 13,
   },
   {
     id: 10,
-    name: 'John',
+    name: 'Superbase',
     score: 6,
   },
   {
     id: 11,
-    name: 'John',
+    name: 'Chill99',
     score: 3,
   },
 ];

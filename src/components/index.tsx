@@ -1,4 +1,5 @@
 import Moles from './moles/Moles';
 import Navbar from './navbar/Navbar';
+import Scoreboard from './scoreboard/Scoreboard';
 
-export { Moles, Navbar };
+export { Moles, Navbar, Scoreboard };

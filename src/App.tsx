@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Moles, Navbar } from './components';
+import { Moles, Navbar, Scoreboard } from './components';
 
 function App() {
   const [start, setStart] = useState(false);
@@ -38,6 +38,7 @@ function App() {
         {finish && (
           <div className="wrapper-finish">
             <button onClick={startGame}>Play again</button>
+            <Scoreboard />
           </div>
         )}
       </div>
