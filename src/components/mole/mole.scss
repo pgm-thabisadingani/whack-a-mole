@@ -1,4 +1,17 @@
 .mole {
-  width: 2rem;
-  height: 2rem;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 }

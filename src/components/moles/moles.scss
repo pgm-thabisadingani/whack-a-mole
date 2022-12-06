@@ -5,4 +5,9 @@
   background-position: center;
   background-size: 'cover';
   background-repeat: 'no-repeat';
+  cursor: pointer;
+  display: flex;
+  flex-basis: 30%;
+  flex-wrap: wrap;
+  //   grid-template-columns: repeat(4, 1fr);
 }

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import mole from '../../assets/WAM_Mole.png';
 import hole from '../../assets/WAM_Hole.png';
+import './mole.scss';
 
 /**
  * Interface
@@ -14,6 +15,7 @@ export type Props = {
 const Mole = ({ id }: Props) => {
   const [randomNr, setRandomNr] = useState(0);
   const [counter, setCounter] = useState(0);
+  const moleRef = useRef(null);
 
   // random nr generator function
   const randomNumberInRange = (min: number, max: number) => {
@@ -29,10 +31,9 @@ const Mole = ({ id }: Props) => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [randomNr]);
 
   // callback function
-
   const handleClick = () => {
     if (randomNr === id) {
       setCounter(counter + 1);
@@ -43,20 +44,24 @@ const Mole = ({ id }: Props) => {
 
   const showMole = () => {
     return (
-      <>
+      <div className="mole-img">
         {randomNr === id ? (
           <img src={mole} alt="mole" />
         ) : (
           <img src={hole} alt="hole" />
         )}
-      </>
+      </div>
     );
   };
 
   console.log(id + ' : ' + randomNr + ' : ' + counter);
   // function if random number === id, increase count by one and hide yes
 
-  return <div onClick={handleClick}>{showMole()}</div>;
+  return (
+    <div ref={moleRef} className="mole" onClick={handleClick}>
+      {showMole()}
+    </div>
+  );
 };
 
 export default Mole;
