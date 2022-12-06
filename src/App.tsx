@@ -4,38 +4,39 @@ import { Moles, Navbar } from './components';
 
 function App() {
   const [start, setStart] = useState(false);
-  const [end, setEnd] = useState(false);
+  const [finish, setFinish] = useState(false);
   const [score, setScore] = useState(0);
 
   const startGame = () => {
     setScore(0);
     setStart(true);
-    setEnd(false);
+    setFinish(false);
   };
 
   const endGame = () => {
     setStart(false);
-    setEnd(true);
+    setFinish(true);
   };
 
   return (
     <div className="app">
       <div className="wrapper">
         {/* start the game */}
-        {!start && !end && (
-          <div className="start">
+        {!start && !finish && (
+          <div className="wrapper-start">
             <button onClick={startGame}>Start</button>
           </div>
         )}
         {/* game area*/}
         {start && (
-          <div className="play">
-            <button onClick={endGame}>end game</button>
+          <div className="wrapper-play">
+            <Navbar />
+            <button onClick={endGame}>End game</button>
             <Moles />
           </div>
         )}
-        {end && (
-          <div className="play">
+        {finish && (
+          <div className="wrapper-finish">
             <button onClick={startGame}>Play again</button>
           </div>
         )}

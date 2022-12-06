@@ -13,9 +13,16 @@
   align-items: center;
 
   .wrapper {
+    padding: 2rem;
     width: 50rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    &-start {
+    }
+    &-play {
+    }
+    &-finish {
+    }
   }
 }

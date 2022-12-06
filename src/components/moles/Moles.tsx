@@ -1,4 +1,6 @@
 import React from 'react';
+import bg from '../../assets/WAM_bg.jpg';
+import './moles.scss';
 
 /**
  * Interface
@@ -6,7 +8,7 @@ import React from 'react';
 export interface Props {}
 
 const Moles = () => {
-  return <div>this is a card</div>;
+  return <div className="moles"></div>;
 };
 
 export default Moles;
