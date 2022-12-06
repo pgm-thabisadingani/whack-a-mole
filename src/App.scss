@@ -11,18 +11,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 
   .wrapper {
     padding: 2rem;
     width: 50rem;
     height: 100vh;
+    background-color: pink;
     display: flex;
     flex-direction: column;
+
     &-start {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     &-play {
     }
+
     &-finish {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

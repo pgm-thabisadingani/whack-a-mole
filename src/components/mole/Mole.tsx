@@ -3,10 +3,14 @@ import React from 'react';
 /**
  * Interface
  */
-export interface Props {}
+export type Props = {
+  id: number;
+};
 
-const Mole = () => {
-  return <div></div>;
+// if the id mole id matches the random generated number increaes the score
+
+const Mole = ({ id }: Props) => {
+  return <div onClick={() => console.log(id)}>hello</div>;
 };
 
 export default Mole;
