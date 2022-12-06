@@ -5,7 +5,7 @@
 }
 
 .app {
-  background-color: green;
+  background-color: rgb(22, 112, 22);
   height: 100vh;
   width: 100%;
   display: flex;
@@ -15,9 +15,9 @@
 
   .wrapper {
     padding: 2rem;
-    width: 50rem;
+    width: 60rem;
     height: 100vh;
-    background-color: pink;
+
     display: flex;
     flex-direction: column;
 

@@ -3,12 +3,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    cursor: url(../../assets/Hammer.gif), auto;
+  }
   &-img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 5rem;
-    height: 5rem;
+    width: 8rem;
+    height: 8rem;
+
     img {
       width: 100%;
       object-fit: cover;
