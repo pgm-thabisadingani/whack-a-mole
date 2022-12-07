@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { increaseScore } from '../../feature/gameSlice';
 import { RootState } from '../../redux/store';
 
+import useSound from 'use-sound';
+import boopSfx from '../../sounds/boop.mp3';
+
 /**
  * Interface
  */
@@ -41,7 +44,9 @@ const Mole = ({ id }: Props) => {
 
   const handleClick = (id: number) => {
     if (randomNr === id) {
-      dispatch(increaseScore());
+      dispatch(increaseScore()) && console.log('Good Job');
+    } else {
+      console.log('you are terrible');
     }
   };
 
