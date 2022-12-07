@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import mole from '../../assets/WAM_Mole.png';
 import hole from '../../assets/WAM_Hole.png';
+import Audio from 'ts-audio';
+import popSfx from '../../assets/sounds/pop.mp3';
+import slowSfx from '../../assets/sounds/pop.mp3';
 import './mole.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseScore } from '../../feature/gameSlice';
 import { RootState } from '../../redux/store';
-
-import useSound from 'use-sound';
-import boopSfx from '../../sounds/boop.mp3';
 
 /**
  * Interface
@@ -17,7 +17,6 @@ export type Props = {
 };
 
 // if the id mole id matches the random generated number increase the score
-
 const Mole = ({ id }: Props) => {
   const [randomNr, setRandomNr] = useState(0);
   const moleRef = useRef(null);
@@ -28,6 +27,13 @@ const Mole = ({ id }: Props) => {
   const randomNumberInRange = () => {
     return Math.floor(Math.random() * totalMoles);
   };
+
+  // TO DO fix Audio
+  const audio = Audio({
+    file: popSfx,
+    loop: false,
+    volume: 0.8,
+  });
 
   // set interval between mole pop-ups
   // callback function
@@ -44,7 +50,8 @@ const Mole = ({ id }: Props) => {
 
   const handleClick = (id: number) => {
     if (randomNr === id) {
-      dispatch(increaseScore()) && console.log('Good Job');
+      dispatch(increaseScore());
+      audio.play();
     } else {
       console.log('you are terrible');
     }
@@ -62,9 +69,6 @@ const Mole = ({ id }: Props) => {
       </div>
     );
   };
-
-  //   console.log(id + ' : ' + randomNr + ' : ' + score);
-  // function if random number === id, increase count by one and hide yes
 
   return (
     <div ref={moleRef} className="mole" onClick={() => handleClick(id)}>
