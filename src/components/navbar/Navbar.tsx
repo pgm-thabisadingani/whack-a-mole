@@ -1,11 +1,18 @@
 import React from 'react';
 import Timer from '../timer/Timer';
 import './navbar.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
+import { endCurrentGame } from '../../feature/gameSlice';
 
 const Navbar = () => {
   const score = useSelector((state: RootState) => state.game.score);
+  const dispatch = useDispatch();
+
+  // end the game navivigate to the scoreboard
+  const handleClick = () => {
+    dispatch(endCurrentGame());
+  };
 
   return (
     <div className="navbar">
@@ -13,7 +20,9 @@ const Navbar = () => {
         <span>Score: {score}</span>
         <Timer />
       </div>
-      <button className="navbar-btn">End Game</button>
+      <button onClick={handleClick} className="navbar-btn">
+        End Game
+      </button>
     </div>
   );
 };

@@ -43,6 +43,7 @@ const Mole = ({ id }: Props) => {
     }
   };
 
+  // auto toggle image based on randomNr and id;
   const showMole = () => {
     return (
       <div className="mole-img">
