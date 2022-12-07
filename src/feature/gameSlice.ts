@@ -11,6 +11,10 @@ export interface GameState {
 
 //
 const initialState: GameState = {
+  //   score:
+  //     (localStorage.getItem('score') &&
+  //       JSON.parse(localStorage.getItem('score'))) ||
+  //     0,
   score: 0,
   start: false,
   end: false,
@@ -24,12 +28,14 @@ export const gameSlice = createSlice({
   reducers: {
     increaseScore: (state) => {
       state.score += 1;
+      localStorage.setItem('score', JSON.stringify(state.score));
     },
     startNewGame: (state) => {
       state.score = 0;
       state.start = true;
       state.end = false;
       state.timer = 120;
+      localStorage.setItem('start', JSON.stringify(state.start));
     },
     endCurrentGame: (state) => {
       state.start = false;
