@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
+import { useSelector, useDispatch } from 'react-redux';
 import { Moles, Navbar, Scoreboard } from './components';
+import { RootState } from './redux/store';
+import { startNewGame } from './feature/gameSlice';
 
 function App() {
-  const [start, setStart] = useState(false);
-  const [finish, setFinish] = useState(false);
-  const [score, setScore] = useState(0);
+  const dispatch = useDispatch();
+  const finish = useSelector((state: RootState) => state.game.end);
+  const start = useSelector((state: RootState) => state.game.start);
 
   const startGame = () => {
-    setScore(0);
-    setStart(true);
-    setFinish(false);
-  };
-
-  const endGame = () => {
-    setStart(false);
-    setFinish(true);
+    dispatch(startNewGame());
   };
 
   return (
@@ -32,7 +28,7 @@ function App() {
           <div className="wrapper-play">
             <div>
               <Navbar />
-              <button onClick={endGame}>End game</button>
+              {/* <button onClick={endGame}>End game</button> */}
             </div>
             <Moles />
           </div>

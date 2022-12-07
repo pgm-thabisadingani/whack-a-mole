@@ -9,7 +9,7 @@ const Navbar = () => {
   const score = useSelector((state: RootState) => state.game.score);
   const dispatch = useDispatch();
 
-  // end the game navivigate to the scoreboard
+  // end the game open the scoreboard
   const handleClick = () => {
     dispatch(endCurrentGame());
   };

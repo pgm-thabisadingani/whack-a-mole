@@ -1,18 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// export interface Game {
-//   score: number;
-//   start: boolean;
-//   end: boolean;
-//   timer: number;
-// }
-
-// interface for score
+// interface for game
 export interface GameState {
   score: number;
   start: boolean;
   end: boolean;
   timer: number;
+  totalMoles: number;
 }
 
 //
@@ -21,6 +15,7 @@ const initialState: GameState = {
   start: false,
   end: false,
   timer: 0,
+  totalMoles: 12,
 };
 
 export const gameSlice = createSlice({
