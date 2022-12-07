@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { usersScores } from '../../data/data';
+import { RootState } from '../../redux/store';
 import './scoreboard.scss';
+import { useSelector } from 'react-redux';
 
 /**
  * Interface
@@ -8,16 +10,17 @@ import './scoreboard.scss';
 export interface Props {}
 
 const Scoreboard = () => {
+  const score = useSelector((state: RootState) => state.game.score);
   const [currentUserScore, setCurrentUserScore] = useState([
     ...usersScores,
-    { id: 19, name: 'Me', score: 44 },
+    { id: 19, name: 'Me', score: score },
   ]);
 
   // 1. sort an array (higher score)
   // 2. slice (make it 10)
   // 3. loop ( display sorted users)
 
-  const soterdScoreboard = currentUserScore
+  const sortedScoreboard = currentUserScore
     //desending order score
     .sort((a, b) => (a.score < b.score ? 1 : -1))
     .slice(0, 10)
@@ -32,7 +35,7 @@ const Scoreboard = () => {
   return (
     <div className="scoreboard">
       <h2>Leaderboard</h2>
-      <ol className="scoreboard-list">{soterdScoreboard}</ol>
+      <ol className="scoreboard-list">{sortedScoreboard}</ol>
     </div>
   );
 };

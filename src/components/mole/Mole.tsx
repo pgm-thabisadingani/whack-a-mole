@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import mole from '../../assets/WAM_Mole.png';
 import hole from '../../assets/WAM_Hole.png';
 import './mole.scss';
+import { useDispatch } from 'react-redux';
+import { increaseScore } from '../../feature/gameSlice';
 
 /**
  * Interface
@@ -14,8 +16,8 @@ export type Props = {
 
 const Mole = ({ id }: Props) => {
   const [randomNr, setRandomNr] = useState(0);
-  const [score, setScore] = useState(0);
   const moleRef = useRef(null);
+  const dispatch = useDispatch();
 
   // random nr generator function
   const randomNumberInRange = () => {
@@ -37,9 +39,7 @@ const Mole = ({ id }: Props) => {
 
   const handleClick = (id: number) => {
     if (randomNr === id) {
-      setScore(score + 1);
-    } else {
-      setScore(score);
+      dispatch(increaseScore());
     }
   };
 
@@ -55,7 +55,7 @@ const Mole = ({ id }: Props) => {
     );
   };
 
-  console.log(id + ' : ' + randomNr + ' : ' + score);
+  //   console.log(id + ' : ' + randomNr + ' : ' + score);
   // function if random number === id, increase count by one and hide yes
 
   return (
