@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import mole from '../../assets/WAM_Mole.png';
 import hole from '../../assets/WAM_Hole.png';
 import './mole.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { increaseScore } from '../../feature/gameSlice';
+import { RootState } from '../../redux/store';
 
 /**
  * Interface
@@ -12,16 +13,17 @@ export type Props = {
   id: number;
 };
 
-// if the id mole id matches the random generated number increaes the score
+// if the id mole id matches the random generated number increase the score
 
 const Mole = ({ id }: Props) => {
   const [randomNr, setRandomNr] = useState(0);
   const moleRef = useRef(null);
   const dispatch = useDispatch();
+  const totalMoles = useSelector((state: RootState) => state.game.totalMoles);
 
   // random nr generator function
   const randomNumberInRange = () => {
-    return Math.floor(Math.random() * 12);
+    return Math.floor(Math.random() * totalMoles);
   };
 
   // set interval between mole pop-ups
@@ -35,7 +37,7 @@ const Mole = ({ id }: Props) => {
     return () => {
       clearInterval(interval);
     };
-  }, [randomNr]);
+  }, []);
 
   const handleClick = (id: number) => {
     if (randomNr === id) {
