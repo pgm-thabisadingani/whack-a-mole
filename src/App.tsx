@@ -30,8 +30,10 @@ function App() {
         {/* game area*/}
         {start && (
           <div className="wrapper-play">
-            <Navbar />
-            <button onClick={endGame}>End game</button>
+            <div>
+              <Navbar />
+              <button onClick={endGame}>End game</button>
+            </div>
             <Moles />
           </div>
         )}

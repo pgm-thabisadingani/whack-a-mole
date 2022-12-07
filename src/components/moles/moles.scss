@@ -1,11 +1,10 @@
 .moles {
-  background-image: url(../../assets/WAM_bg.jpg);
-  width: 100%;
-  height: 40rem;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  flex: 4;
+  &:hover {
+    cursor: url(../../assets/Hammer.gif), auto;
+  }
   //   grid-template-columns: repeat(4, 1fr);
 }

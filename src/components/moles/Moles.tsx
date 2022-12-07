@@ -13,7 +13,7 @@ const Moles = () => {
 
   const moles = new Array(totalMoles)
     .fill(null)
-    .map((_, i) => <Mole key={i} id={i + 1} />);
+    .map((_, i) => <Mole key={i} id={i} />);
 
   return <div className="moles">{moles}</div>;
 };

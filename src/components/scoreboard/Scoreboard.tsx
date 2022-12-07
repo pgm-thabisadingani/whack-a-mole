@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { usersScores } from '../../data/data';
+import './scoreboard.scss';
 
 /**
  * Interface
@@ -9,7 +10,7 @@ export interface Props {}
 const Scoreboard = () => {
   const [currentUserScore, setCurrentUserScore] = useState([
     ...usersScores,
-    { id: 19, name: 'Me', score: 9 },
+    { id: 19, name: 'Me', score: 44 },
   ]);
 
   // 1. sort an array (higher score)
@@ -21,12 +22,19 @@ const Scoreboard = () => {
     .sort((a, b) => (a.score < b.score ? 1 : -1))
     .slice(0, 10)
     .map((user, i) => (
-      <li key={i}>
-        {user.name}:{user.score}
+      <li key={i} className="scoreboard-list_item">
+        {/* <div>{i + 1}</div> */}
+        <span>{user.name}</span>
+        <span>{user.score}</span>
       </li>
     ));
 
-  return <div>{soterdScoreboard}</div>;
+  return (
+    <div className="scoreboard">
+      <h2>Leaderboard</h2>
+      <ol className="scoreboard-list">{soterdScoreboard}</ol>
+    </div>
+  );
 };
 
 export default Scoreboard;

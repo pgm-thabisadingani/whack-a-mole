@@ -14,31 +14,32 @@ export type Props = {
 
 const Mole = ({ id }: Props) => {
   const [randomNr, setRandomNr] = useState(0);
-  const [counter, setCounter] = useState(0);
+  const [score, setScore] = useState(0);
   const moleRef = useRef(null);
 
   // random nr generator function
-  const randomNumberInRange = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  const randomNumberInRange = () => {
+    return Math.floor(Math.random() * 12);
   };
 
-  // set interval between
+  // set interval between mole pop-ups
+  // callback function
   useEffect(() => {
     const interval = setInterval(() => {
       // generate random number between 1 and 12
-      setRandomNr(randomNumberInRange(1, 12));
-    }, 2000); // runs every 1 second
+      setRandomNr(randomNumberInRange());
+    }, 1000); // runs every 1 second
+
     return () => {
       clearInterval(interval);
     };
   }, [randomNr]);
 
-  // callback function
-  const handleClick = () => {
+  const handleClick = (id: number) => {
     if (randomNr === id) {
-      setCounter(counter + 1);
+      setScore(score + 1);
     } else {
-      setCounter(counter);
+      setScore(score);
     }
   };
 
@@ -54,11 +55,11 @@ const Mole = ({ id }: Props) => {
     );
   };
 
-  console.log(id + ' : ' + randomNr + ' : ' + counter);
+  console.log(id + ' : ' + randomNr + ' : ' + score);
   // function if random number === id, increase count by one and hide yes
 
   return (
-    <div ref={moleRef} className="mole" onClick={handleClick}>
+    <div ref={moleRef} className="mole" onClick={() => handleClick(id)}>
       {showMole()}
     </div>
   );

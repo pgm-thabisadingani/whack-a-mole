@@ -1,0 +1,27 @@
+.scoreboard {
+  width: 100%;
+
+  &-list {
+    margin-top: 0.8rem;
+    &_item {
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      color: rgb(36, 35, 35);
+
+      /* Gold */
+      &:nth-child(1) {
+        background: gold;
+      }
+      /* Silver */
+      &:nth-child(2) {
+        background: #c0c0c0;
+      }
+      /* Bronze */
+      &:nth-child(3) {
+        background: #cd7f32;
+      }
+    }
+  }
+}
