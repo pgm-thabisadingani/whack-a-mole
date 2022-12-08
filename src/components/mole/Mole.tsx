@@ -4,13 +4,14 @@ import hole from '../../assets/WAM_Hole.png';
 import Audio from 'ts-audio';
 import popSfx from '../../assets/sounds/pop.mp3';
 import slowSfx from '../../assets/sounds/pop.mp3';
-import './mole.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseScore } from '../../feature/gameSlice';
 import { RootState } from '../../redux/store';
 
+import './mole.scss';
+
 /**
- * Interface
+ * Props
  */
 export type Props = {
   id: number;
