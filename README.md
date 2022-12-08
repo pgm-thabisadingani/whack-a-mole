@@ -1,5 +1,13 @@
 # Getting Started with Create React App
 
+A take on 🚀whack-a-mole🚀 game.
+
+## Screenshots
+
+<div style="display: flex">
+    <img src="./src/assets/whack-a-mole.png" alt=" whack a hole" style="width: 400px"/>
+</div>
+
 ## 🧐 What's inside?
 
 - ⚡️ [Redux Toolkit](https://redux-toolkit.js.org/) - A set of tools that helps simplify Redux development
@@ -13,7 +21,7 @@
 - LocalStorage
 - Register & login
 - Database
-- Sound Effects
+- Sound Effects (fix it)
 
 ## 🦋 Deployment
 
