@@ -45,9 +45,6 @@ function App() {
         {finish && (
           <div className="wrapper-finish">
             <Scoreboard />
-            <button className="btn btn-finish" onClick={startGame}>
-              Play Again
-            </button>
           </div>
         )}
       </div>

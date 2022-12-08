@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { usersScores } from '../../data/data';
 import { RootState } from '../../redux/store';
 import './scoreboard.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { startNewGame } from '../../feature/gameSlice';
 
 /**
  * Interface
@@ -10,11 +11,16 @@ import { useSelector } from 'react-redux';
 export interface Props {}
 
 const Scoreboard = () => {
+  const dispatch = useDispatch();
   const score = useSelector((state: RootState) => state.game.score);
   const [currentUserScore, setCurrentUserScore] = useState([
     ...usersScores,
     { id: 19, name: 'Me', score: score },
   ]);
+
+  const startGame = () => {
+    dispatch(startNewGame());
+  };
 
   // 1. sort an array (higher score)
   // 2. slice (make it 10)
@@ -36,6 +42,9 @@ const Scoreboard = () => {
     <div className="scoreboard">
       <h2>Leaderboard</h2>
       <ol className="scoreboard-list">{sortedScoreboard}</ol>
+      <button className="btn btn-finish" onClick={startGame}>
+        Play Again
+      </button>
     </div>
   );
 };
