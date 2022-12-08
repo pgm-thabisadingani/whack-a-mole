@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // interface for game
 export interface GameState {
+  currentUser: string;
   score: number;
   start: boolean;
   end: boolean;
@@ -15,6 +16,7 @@ const initialState: GameState = {
   //     (localStorage.getItem('score') &&
   //       JSON.parse(localStorage.getItem('score'))) ||
   //     0,
+  currentUser: '',
   score: 0,
   start: false,
   end: false,
@@ -29,6 +31,10 @@ export const gameSlice = createSlice({
     increaseScore: (state) => {
       state.score += 1;
       localStorage.setItem('score', JSON.stringify(state.score));
+    },
+    currentUser: (state, action) => {
+      state.currentUser = action.payload;
+      localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
     },
     startNewGame: (state) => {
       state.score = 0;
