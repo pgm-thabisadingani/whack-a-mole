@@ -1,15 +1,12 @@
+@use '../../scss/' as *;
 .mole {
   width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(center, center);
   &:hover {
     cursor: url(../../assets/Hammer.gif), auto;
   }
   &-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center, center);
     width: 10rem;
     height: 10rem;
 

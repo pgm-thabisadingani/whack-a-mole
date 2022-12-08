@@ -1,0 +1,20 @@
+// The @use rule loads mixins, functions, and variables from other Sass stylesheets
+@use './variables' as *;
+
+/* media query mobile*/
+@mixin mobile {
+  @media (min-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tabletLarge) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
