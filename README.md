@@ -3,5 +3,4 @@
 - React App
 - Typescript
 - Redux
-- Styled Componets
 - Sass

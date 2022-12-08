@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import { FaPlay } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { Moles, Navbar, Scoreboard } from './components';
 import { RootState } from './redux/store';
@@ -20,7 +21,15 @@ function App() {
         {/* start the game */}
         {!start && !finish && (
           <div className="wrapper-start">
-            <button onClick={startGame}>Start</button>
+            <div className="wrapper-start_content">
+              <h1>
+                Whack <br />A <br />
+                Mole
+              </h1>
+              <button className="btn btn-start" onClick={startGame}>
+                <FaPlay /> Play
+              </button>
+            </div>
           </div>
         )}
         {/* game area*/}
