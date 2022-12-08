@@ -29,9 +29,9 @@ const Timer = () => {
 
   return (
     <>
-      <h1>
+      <h3>
         Time left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-      </h1>
+      </h3>
     </>
   );
 };

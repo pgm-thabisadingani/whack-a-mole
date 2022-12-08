@@ -35,7 +35,7 @@ function App() {
         {/* game area*/}
         {start && (
           <div className="wrapper-play">
-            <div>
+            <div className="wrapper-play_nav">
               <Navbar />
               {/* <button onClick={endGame}>End game</button> */}
             </div>
