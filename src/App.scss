@@ -36,15 +36,15 @@
     font-weight: 300;
 
     @include tablet {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
   }
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 
     @include tablet {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 

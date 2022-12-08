@@ -30,7 +30,7 @@ const Timer = () => {
   return (
     <>
       <h3>
-        Time left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+        Time: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
       </h3>
     </>
   );

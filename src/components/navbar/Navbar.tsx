@@ -17,8 +17,8 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <h3>Score: {score}</h3>
       <Timer />
+      <h3>Score: {score}</h3>
       <Button className="endGame" onClick={handleClick}>
         End Game
       </Button>
