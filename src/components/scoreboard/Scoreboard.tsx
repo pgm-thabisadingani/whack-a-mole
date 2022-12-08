@@ -27,8 +27,8 @@ const Scoreboard = () => {
     .map((user, i) => (
       <li key={i} className="scoreboard-list_item">
         {/* <div>{i + 1}</div> */}
-        <span>{user.name}</span>
-        <span>{user.score}</span>
+        <span className="user-name">{user.name}</span>
+        <span className="user-score">{user.score}</span>
       </li>
     ));
 
