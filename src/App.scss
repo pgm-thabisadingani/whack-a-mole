@@ -14,17 +14,17 @@
   height: 100vh;
   @include flex(center, center);
   margin: 0 auto;
-  -webkit-text-stroke-width: 0.3px;
-  -webkit-text-stroke-color: $primary-color;
+
+  h2 {
+    -webkit-text-stroke-width: 0.05px;
+    -webkit-text-stroke-color: $secondary-color;
+  }
 
   h1 {
     font-size: 3rem;
     color: $white;
     text-align: center;
     line-height: 1.1;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: $secondary-color;
-    font-weight: 800;
 
     @include tablet {
       font-size: 5rem;
@@ -34,7 +34,6 @@
   h2 {
     font-size: 2rem;
     font-weight: 300;
-    -webkit-text-stroke-width: 0.6px;
 
     @include tablet {
       font-size: 3rem;
@@ -54,7 +53,7 @@
   }
 
   button {
-    font-family: cursive, sans-serif;
+    font-family: 'Special Elite', cursive, sans-serif;
   }
 
   .wrapper {
