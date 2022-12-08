@@ -18,7 +18,7 @@ const Navbar = () => {
     <div className="navbar">
       <h3>Score: {score}</h3>
       <Timer />
-      <button onClick={handleClick} className="navbar-btn">
+      <button onClick={handleClick} className="navbar-btn btn">
         End Game
       </button>
     </div>
