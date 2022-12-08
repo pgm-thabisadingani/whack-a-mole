@@ -40,7 +40,7 @@ const Scoreboard = () => {
 
   return (
     <div className="scoreboard">
-      <h2>Leaderboard</h2>
+      <h2>⭐Leaderboard⭐</h2>
       <ol className="scoreboard-list">{sortedScoreboard}</ol>
       <button className="btn btn-finish" onClick={startGame}>
         Play Again
