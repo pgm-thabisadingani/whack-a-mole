@@ -71,32 +71,6 @@
     flex-direction: column;
     align-items: center;
 
-    .btn {
-      box-sizing: border-box;
-      appearance: none;
-      background-color: $white;
-      border: 2px solid $primary-color;
-      border-radius: 0.6rem;
-      color: $primary-color;
-      cursor: pointer;
-      font-size: 1rem;
-      line-height: 1;
-      margin: 20px;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      text-align: center;
-      font-weight: 700;
-      transition: all 150ms ease-in-out;
-
-      &:hover,
-      &:focus {
-        box-shadow: 0 0 10px 0 $primary-color inset, 0 0 10px 4px $primary-color;
-        color: $primary-color;
-        background-color: $white;
-        border-color: $primary-color;
-      }
-    }
-
     &-start {
       @include flex(center, center);
       flex-direction: column;
@@ -118,19 +92,9 @@
           width: 31rem;
           padding: 2rem;
         }
-
-        .btn-start {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          border-color: $secondary-color;
-          color: $white;
-          padding: 1.2rem 2.8rem;
-          background-color: $primary-color;
-          font-size: 1.5rem;
-        }
       }
     }
+
     &-play {
       height: 100vh;
       display: flex;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './mole.scss';
+import './button.scss';
 
 /**
  * Props
@@ -7,10 +7,15 @@ import './mole.scss';
 export type Props = {
   className: string;
   children: React.ReactNode;
+  onClick: any;
 };
 
-const Button = ({ className, children }: Props) => {
-  return <button className={`btn btn-${className}`}>{children}</button>;
+const Button = ({ className, children, onClick }: Props) => {
+  return (
+    <button className={`btn btn-${className}`} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

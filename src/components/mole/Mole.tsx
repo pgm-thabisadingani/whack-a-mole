@@ -17,19 +17,18 @@ export type Props = {
   id: number;
 };
 
-// if the id mole id matches the random generated number increase the score
 const Mole = ({ id }: Props) => {
   const [randomNr, setRandomNr] = useState(0);
   const moleRef = useRef(null);
   const dispatch = useDispatch();
   const totalMoles = useSelector((state: RootState) => state.game.totalMoles);
 
-  // random nr generator function
+  // generate random number between 1 and 12
   const randomNumberInRange = () => {
     return Math.floor(Math.random() * totalMoles);
   };
 
-  // TO DO fix Audio
+  // TODO fix Audio
   const audio = Audio({
     file: popSfx,
     loop: false,
@@ -40,7 +39,6 @@ const Mole = ({ id }: Props) => {
   // callback function
   useEffect(() => {
     const interval = setInterval(() => {
-      // generate random number between 1 and 12
       setRandomNr(randomNumberInRange());
     }, 1000); // runs every 1 second
 
@@ -50,6 +48,7 @@ const Mole = ({ id }: Props) => {
   }, []);
 
   const handleClick = (id: number) => {
+    // if the id mole id matches the random generated number increase the score
     if (randomNr === id) {
       dispatch(increaseScore());
       audio.play();

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import { FaPlay } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { Moles, Navbar, Scoreboard } from './components';
+import { Button, Moles, Navbar, Scoreboard } from './components';
 import { RootState } from './redux/store';
 import { startNewGame } from './feature/gameSlice';
 
@@ -26,9 +26,9 @@ function App() {
                 Whack <br />A <br />
                 Mole
               </h1>
-              <button className="btn btn-start" onClick={startGame}>
+              <Button className="start" onClick={startGame}>
                 <FaPlay /> Play
-              </button>
+              </Button>
             </div>
           </div>
         )}

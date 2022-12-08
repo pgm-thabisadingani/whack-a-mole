@@ -4,6 +4,7 @@ import './navbar.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { endCurrentGame } from '../../feature/gameSlice';
+import Button from '../button/Button';
 
 const Navbar = () => {
   const score = useSelector((state: RootState) => state.game.score);
@@ -18,9 +19,9 @@ const Navbar = () => {
     <div className="navbar">
       <h3>Score: {score}</h3>
       <Timer />
-      <button onClick={handleClick} className="navbar-btn btn">
+      <Button className="endGame" onClick={handleClick}>
         End Game
-      </button>
+      </Button>
     </div>
   );
 };

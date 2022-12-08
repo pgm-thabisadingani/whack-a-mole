@@ -4,6 +4,7 @@ import { RootState } from '../../redux/store';
 import './scoreboard.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { startNewGame } from '../../feature/gameSlice';
+import Button from '../button/Button';
 
 /**
  * Interface
@@ -31,7 +32,14 @@ const Scoreboard = () => {
     .sort((a, b) => (a.score < b.score ? 1 : -1))
     .slice(0, 10)
     .map((user, i) => (
-      <li key={i} className="scoreboard-list_item">
+      <li
+        key={i}
+        className={
+          user.id === 19
+            ? 'active scoreboard-list_item'
+            : 'scoreboard-list_item'
+        }
+      >
         {/* <div>{i + 1}</div> */}
         <span className="user-name">{user.name}</span>
         <span className="user-score">{user.score}</span>
@@ -42,9 +50,9 @@ const Scoreboard = () => {
     <div className="scoreboard">
       <h2>⭐Leaderboard⭐</h2>
       <ol className="scoreboard-list">{sortedScoreboard}</ol>
-      <button className="btn btn-finish" onClick={startGame}>
+      <Button onClick={startGame} className="finish">
         Play Again
-      </button>
+      </Button>
     </div>
   );
 };

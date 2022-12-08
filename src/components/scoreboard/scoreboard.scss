@@ -24,6 +24,16 @@
       width: 60%;
     }
 
+    .active {
+      border: 2px solid rgb(255, 255, 255);
+      .user-name {
+        &::after {
+          content: '👏';
+          padding-right: 0.5rem;
+        }
+      }
+    }
+
     &_item {
       padding: 0.5rem;
       display: flex;
@@ -66,11 +76,5 @@
         }
       }
     }
-  }
-
-  .btn-finish {
-    padding: 1rem 2.8rem !important;
-    font-size: 1.5rem !important;
-    width: 15rem;
   }
 }
