@@ -25,7 +25,8 @@
     }
 
     .active {
-      border: 2px solid rgb(255, 255, 255);
+      border: 2px solid $white;
+      box-shadow: 0 0 10px 0 $primary-color inset, 0 0 10px 4px $primary-color;
       .user-name {
         &::after {
           content: '👏';
