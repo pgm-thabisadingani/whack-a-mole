@@ -5,6 +5,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +36,7 @@
         color: black;
         .user-score {
           &::before {
-            content: '1st';
+            content: '🥇';
             padding-right: 0.5rem;
           }
         }
@@ -46,7 +47,7 @@
         color: black;
         .user-score {
           &::before {
-            content: '2nd';
+            content: '🥈';
             padding-right: 0.5rem;
           }
         }
@@ -57,7 +58,7 @@
         color: black;
         .user-score {
           &::before {
-            content: '3rd';
+            content: '🥉';
             padding-right: 0.5rem;
           }
         }
