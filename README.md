@@ -40,7 +40,7 @@ npx create-next-app my-app -e https://github.com/pgm-thabisadingani/whack-a-mole
 Once the project and dependencies are finished installing, you can navigate to that directory and start up the development server with:
 
 ```
-yarn dev
+yarn start
 # or
-npm run dev
+npm run start
 ```
