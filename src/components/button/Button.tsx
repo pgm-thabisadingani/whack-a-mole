@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './button.scss';
 
 /**
  * Props
  */
-export type Props = {
+export type ButtonProps = {
   className: string;
   children: React.ReactNode;
-  onClick: any;
+  onClick?: () => void;
+  type?: 'submit' | 'reset' | 'button';
 };
 
-const Button = ({ className, children, onClick }: Props) => {
+const Button: FC<ButtonProps> = ({ className, children, onClick, type }) => {
   return (
-    <button className={`btn btn-${className}`} onClick={onClick}>
+    <button type={type} className={`btn btn-${className}`} onClick={onClick}>
       {children}
     </button>
   );
