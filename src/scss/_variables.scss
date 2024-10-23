@@ -13,3 +13,10 @@ $tabletLarge: 910px;
 $desktop: 1024px;
 
 $font-family: 'Special Elite', cursive, sans-serif;
+
+$color-palette: (
+  //add here the pair value content of _colors
+  black: '#000',
+  white: '#fff',
+  blue: '#0000ff'
+) !default;
