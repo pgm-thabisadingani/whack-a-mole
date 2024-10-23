@@ -1,50 +1,66 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
-import { FaPlay } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, Moles, Navbar, Scoreboard } from './components';
-import { RootState } from './redux/store';
-import { startNewGame } from './feature/gameSlice';
+import { RootState, AppDispatch } from './redux/store';
+import {
+  resetGame,
+  startNewGame,
+  endCurrentGame,
+} from './redux/reducers/gameSlice';
+import { StartGame, Navbar, Moles, EndGame } from './components';
 
 function App() {
-  const dispatch = useDispatch();
-  const finish = useSelector((state: RootState) => state.game.end);
-  const start = useSelector((state: RootState) => state.game.start);
+  const dispatch: AppDispatch = useDispatch();
+  const finish = useSelector((state: RootState) => state.game?.end ?? false);
+  const start = useSelector((state: RootState) => state.game?.start ?? false);
 
-  const startGame = () => {
+  // Load game state from localStorage on initial load
+  useEffect(() => {
+    const savedStart = localStorage.getItem('gameStart') === 'true';
+    const savedFinish = localStorage.getItem('gameEnd') === 'true';
+
+    // Ensure game state is set based on localStorage
+    if (savedFinish) {
+      dispatch(endCurrentGame());
+    } else if (savedStart) {
+      dispatch(startNewGame());
+    } else {
+      dispatch(resetGame());
+    }
+  }, [dispatch]);
+
+  // Save game state to localStorage whenever `start` or `finish` changes
+  useEffect(() => {
+    localStorage.setItem('gameStart', start ? 'true' : 'false');
+    localStorage.setItem('gameEnd', finish ? 'true' : 'false');
+  }, [start, finish]);
+
+  const handleStartGame = () => {
     dispatch(startNewGame());
   };
 
   return (
     <div className="app">
       <div className="wrapper">
-        {/* start the game */}
+        {/* Render components based on game state */}
         {!start && !finish && (
           <div className="wrapper-start">
             <div className="wrapper-start_content">
-              <h1>
-                Whack <br />A <br />
-                Mole
-              </h1>
-              <Button className="start" onClick={startGame}>
-                <FaPlay /> Play
-              </Button>
+              <StartGame onStartGame={handleStartGame} />
             </div>
           </div>
         )}
-        {/* game area*/}
-        {start && (
+        {start && !finish && (
           <div className="wrapper-play">
             <div className="wrapper-play_nav">
               <Navbar />
-              {/* <button onClick={endGame}>End game</button> */}
             </div>
             <Moles />
           </div>
         )}
         {finish && (
           <div className="wrapper-finish">
-            <Scoreboard />
+            <EndGame />
           </div>
         )}
       </div>
