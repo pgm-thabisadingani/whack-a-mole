@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Whack-A-Mole🚀
 
-A take on 🚀whack-a-mole🚀 game.
+This project is a fun take on the classic Whack-A-Mole game, built with modern tools and technologies to enhance the development experience and performance.
 
 ## Screenshots
 
@@ -10,18 +10,18 @@ A take on 🚀whack-a-mole🚀 game.
 
 ## 🧐 What's inside?
 
-- ⚡️ [Redux Toolkit](https://redux-toolkit.js.org/) - A set of tools that helps simplify Redux development
-- ⚛️ [React](https://reactjs.org/) - A JavaScript library for building user interfaces
-- ✨ [TypeScript](https://www.typescriptlang.org/) - TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
-- 🎉 [Sass](https://sass-lang.com/) - Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+- ⚛️ [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- ⚡️ [Redux Toolkit](https://redux-toolkit.js.org/) - A set of tools to simplify Redux development.
+- ✨ [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that scales.
+- 🎉 [Sass](https://sass-lang.com/) - A professional CSS extension language.
+- 💾 LocalStorage - Used for persisting game state (like player scores and session data)
+- 🔄 [Supabase](https://supabase.com/) - Integrated for storing and fetching leaderboard data
+- 🔒 Login (No Registration) - Allows players to log in without registering
+- 🎯 Score Modal - A detailed score summary modal that appears at the end of each game, showing the player's final score and personal best.
 
 ## 📏📏Pending (TODO)📏📏
 
-- Testing
-- LocalStorage
-- Register & login
-- Database
-- Sound Effects (fix it)
+- Add Sound Effects
 
 ## 🦋 Deployment
 
