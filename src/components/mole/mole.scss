@@ -1,18 +1,19 @@
 @use '../../scss/' as *;
+
 .mole {
-  width: 25%;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  text-align: center;
   @include flex(center, center);
+
+  img {
+    @include flex(center, center);
+    width: 100%;
+    height: auto;
+  }
+
   &:hover {
     cursor: url(../../assets/Hammer.gif), auto;
-  }
-  &-img {
-    @include flex(center, center);
-    width: 10rem;
-    height: 10rem;
-
-    img {
-      width: 100%;
-      object-fit: cover;
-    }
   }
 }

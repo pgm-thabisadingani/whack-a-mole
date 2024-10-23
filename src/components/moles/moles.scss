@@ -1,10 +1,14 @@
 .moles {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2rem;
   width: 100%;
-  flex: 4;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+
   &:hover {
     cursor: url(../../assets/Hammer.gif), auto;
   }
-  //   grid-template-columns: repeat(4, 1fr);
 }

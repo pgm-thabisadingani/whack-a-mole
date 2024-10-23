@@ -1,78 +1,36 @@
-import React, { useEffect, useState, useRef } from 'react';
-import mole from '../../assets/WAM_Mole.png';
-import hole from '../../assets/WAM_Hole.png';
-import Audio from 'ts-audio';
-import popSfx from '../../assets/sounds/pop.mp3';
-import slowSfx from '../../assets/sounds/pop.mp3';
+import React, { FC } from 'react';
+import moleImg from '../../assets/WAM_Mole.png';
+import holeImg from '../../assets/WAM_Hole.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { increaseScore } from '../../feature/gameSlice';
-import { RootState } from '../../redux/store';
-
+import { increaseScore } from '../../redux/reducers/gameSlice';
+import { AppDispatch, RootState } from '../../redux/store';
 import './mole.scss';
 
-/**
- * Props
- */
-export type Props = {
+export type MoleProps = {
   id: number;
+  isActive: boolean;
 };
 
-const Mole = ({ id }: Props) => {
-  const [randomNr, setRandomNr] = useState(0);
-  const moleRef = useRef(null);
-  const dispatch = useDispatch();
-  const totalMoles = useSelector((state: RootState) => state.game.totalMoles);
+const Mole: FC<MoleProps> = ({ id, isActive }) => {
+  const dispatch: AppDispatch = useDispatch();
+  const start = useSelector((state: RootState) => state.game.start);
+  const end = useSelector((state: RootState) => state.game.end);
 
-  // generate random number between 1 and 12
-  const randomNumberInRange = () => {
-    return Math.floor(Math.random() * totalMoles);
-  };
-
-  // TODO fix Audio
-  const audio = Audio({
-    file: popSfx,
-    loop: false,
-    volume: 0.8,
-  });
-
-  // set interval between mole pop-ups
-  // callback function
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRandomNr(randomNumberInRange());
-    }, 1000); // runs every 1 second
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  const handleClick = (id: number) => {
-    // if the id mole id matches the random generated number increase the score
-    if (randomNr === id) {
-      dispatch(increaseScore());
-      audio.play();
-    } else {
-      console.log('you are terrible');
+  const handleClick = () => {
+    if (!start || end) return;
+    if (isActive) {
+      // Dispatch the action with the mole's id
+      dispatch(increaseScore(1));
     }
   };
 
-  // auto toggle image based on randomNr and id;
-  const showMole = () => {
-    return (
-      <div className="mole-img">
-        {randomNr === id ? (
-          <img src={mole} alt="mole" />
-        ) : (
-          <img src={hole} alt="hole" />
-        )}
-      </div>
-    );
-  };
-
   return (
-    <div ref={moleRef} className="mole" onClick={() => handleClick(id)}>
-      {showMole()}
+    <div className="mole" onClick={handleClick} data-testid={`mole-${id}`}>
+      {isActive ? (
+        <img src={moleImg} alt="mole" className="mole-img" />
+      ) : (
+        <img src={holeImg} alt="hole" className="mole-img" />
+      )}
     </div>
   );
 };
