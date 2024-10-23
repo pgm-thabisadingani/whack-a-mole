@@ -29,7 +29,7 @@ const EndGame = () => {
   const loadLeaderboard = async () => {
     try {
       setIsLoading(true);
-      console.log('Loading leaderboard data...');
+
       const updatedScores = await fetchScores();
       setLeaderboard(updatedScores || []);
 
@@ -63,13 +63,12 @@ const EndGame = () => {
       try {
         // Save the user's score only if it's higher than the previous score
         if (!isSaved && (!personalBest || score > personalBest)) {
-          console.log('Saving user data...');
           await saveUserData(userId, currentUser, score);
           setIsSaved(true);
         }
 
         // Fetch the leaderboard after saving the score
-        console.log('Fetching leaderboard...');
+
         await loadLeaderboard();
 
         // Show final score modal after the leaderboard is updated

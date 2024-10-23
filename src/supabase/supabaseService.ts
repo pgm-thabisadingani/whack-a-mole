@@ -72,6 +72,5 @@ export const fetchScores = async () => {
     return [];
   }
 
-  console.log('Leaderboard data:', data);
   return data;
 };
