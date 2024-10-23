@@ -1,0 +1,109 @@
+@use '../../scss/' as *;
+
+.endGame {
+  width: 80%;
+  color: $white;
+  background-image: url(./../../../src/assets/woodBg.jpg);
+  @include imageBg();
+  border-radius: 0.5rem;
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+
+  &-list {
+    width: 100%;
+    padding: 0.5rem;
+    text-align: left;
+    list-style: none;
+
+    @include mobile {
+      width: 60%;
+    }
+
+    .active {
+      border: 2px solid $white;
+      box-shadow: 0 0 10px 0 $primary-color inset, 0 0 10px 4px $primary-color;
+      .user-name {
+        font-weight: bold;
+        &::after {
+          content: '🎉';
+          padding-left: 0.5rem;
+        }
+      }
+    }
+
+    .scoreboard-list_item {
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $white;
+      font-size: 1.2rem;
+
+      &:nth-child(odd) {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Gold Medal for 1st Place */
+      &:nth-child(1) {
+        background: gold;
+        color: black;
+        font-weight: bold;
+        .user-score {
+          &::before {
+            content: '🥇';
+            padding-right: 0.5rem;
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      /* Silver Medal for 2nd Place */
+      &:nth-child(2) {
+        background: #c0c0c0;
+        color: black;
+        font-weight: bold;
+        .user-score {
+          &::before {
+            content: '🥈';
+            padding-right: 0.5rem;
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      /* Bronze Medal for 3rd Place */
+      &:nth-child(3) {
+        background: #cd7f32;
+        color: black;
+        font-weight: bold;
+        .user-score {
+          &::before {
+            content: '🥉';
+            padding-right: 0.5rem;
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      .user-name {
+        flex-grow: 1;
+        text-transform: capitalize;
+      }
+
+      .user-score {
+        text-align: right;
+        min-width: 50px;
+      }
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+}
