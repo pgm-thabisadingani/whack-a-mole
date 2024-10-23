@@ -1,7 +1,8 @@
 import Button from './button/Button';
-import Input from './input/Input';
+import StartGame from './startGame/StartGame';
 import Moles from './moles/Moles';
 import Navbar from './navbar/Navbar';
-import Scoreboard from './scoreboard/Scoreboard';
+import EndGame from './endGame/EndGame';
+import Mole from './mole/Mole';
 
-export { Moles, Navbar, Scoreboard, Button, Input };
+export { Moles, Navbar, EndGame, Button, StartGame, Mole };
