@@ -1,13 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import gameReducer from '../feature/gameSlice';
-import userReducer from '../feature/userSlice';
+import rootReducer from './reducers';
 
-export const store = configureStore({
-  reducer: {
-    game: gameReducer,
-    currentUser: userReducer,
-  },
+const store = configureStore({
+  // The root reducer that combines all slice reducers
+  reducer: rootReducer,
+  // Enables Redux DevTools in development
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
-export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
