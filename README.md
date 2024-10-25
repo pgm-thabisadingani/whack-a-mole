@@ -44,3 +44,10 @@ yarn start
 # or
 npm run start
 ```
+
+To connect with Supabase, create a .env file in the root directory and add the following keys:
+
+```
+REACT_APP_SUPABASE_URL=your-supabase-url
+REACT_APP_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
